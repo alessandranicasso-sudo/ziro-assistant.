@@ -40,8 +40,7 @@ function showView(name) {
 
   $("#page-title").textContent = pageTitles[name] || "Ziro";
 
-  document.querySelector(".sidebar").classList.remove("open");
-}
+  document.body.classList.remove("menu-open");
 
 document.querySelectorAll(".nav-item").forEach(button => {
   button.addEventListener("click", () => {
