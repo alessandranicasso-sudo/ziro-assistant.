@@ -1,0 +1,504 @@
+:root {
+  color-scheme: dark;
+  --background: #111318;
+  --surface: #191b22;
+  --surface-hover: #232630;
+  --border: #2c2f3a;
+  --text: #f0f0f5;
+  --muted: #999dac;
+  --accent: #a78bfa;
+  --accent-hover: #c4b5fd;
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--background);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  background: var(--background);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* BARRA LATERAL */
+
+.sidebar {
+  width: 250px;
+  min-width: 250px;
+  min-height: 100vh;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  background: #15161c;
+  border-right: 1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 8px;
+  font-size: 23px;
+  font-weight: 750;
+  letter-spacing: -1px;
+}
+
+.brand-icon,
+.welcome-icon {
+  display: grid;
+  place-items: center;
+  background: var(--accent);
+  color: #17121f;
+  font-weight: 850;
+  border-radius: 12px;
+}
+
+.brand-icon {
+  width: 40px;
+  height: 40px;
+  font-size: 23px;
+}
+
+.new-chat {
+  width: 100%;
+  padding: 12px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-align: left;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.new-chat:hover {
+  background: var(--surface-hover);
+  border-color: var(--accent);
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.nav-item {
+  width: 100%;
+  padding: 11px 13px;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  text-align: left;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-item:hover {
+  color: var(--text);
+  background: var(--surface-hover);
+}
+
+.nav-item.active {
+  color: var(--accent-hover);
+  background: #292337;
+  border-color: #413354;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 0 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ÁREA PRINCIPAL */
+
+.main-panel {
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: 68px;
+  min-height: 68px;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(17, 19, 24, 0.92);
+  border-bottom: 1px solid var(--border);
+}
+
+#page-title {
+  font-weight: 650;
+}
+
+.badge {
+  margin-left: auto;
+  padding: 4px 9px;
+  color: var(--accent-hover);
+  background: #292337;
+  border: 1px solid #413354;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1px;
+}
+
+.menu-toggle {
+  display: none;
+  padding: 6px 10px;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+}
+
+/* TELAS */
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: flex;
+  flex-direction: column;
+}
+
+#view-chat.active {
+  flex: 1;
+  min-height: calc(100vh - 68px);
+}
+
+.chat-content {
+  width: 100%;
+  max-width: 850px;
+  flex: 1;
+  margin: 0 auto;
+  padding: 48px 24px 24px;
+}
+
+.welcome {
+  max-width: 600px;
+  margin: 50px auto 40px;
+  text-align: center;
+}
+
+.welcome-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 22px;
+  border-radius: 20px;
+  font-size: 34px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 2px;
+}
+
+h1 {
+  margin: 8px 0 12px;
+  font-size: clamp(26px, 4vw, 36px);
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+h2 {
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.welcome p:last-child,
+.page > p:not(.eyebrow) {
+  color: var(--muted);
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.message {
+  max-width: 85%;
+  padding: 13px 17px;
+  border-radius: 16px;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.message.user {
+  align-self: flex-end;
+  background: #302740;
+  border: 1px solid #49385f;
+}
+
+.message.assistant {
+  align-self: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+/* CAMPO DE MENSAGEM */
+
+.composer {
+  width: calc(100% - 40px);
+  max-width: 800px;
+  margin: 0 auto 28px;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid #393b49;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px #00000020;
+}
+
+.composer textarea {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  max-height: 180px;
+  padding: 9px 4px;
+  resize: vertical;
+  color: var(--text);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.composer textarea::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: #777b89;
+}
+
+.composer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.composer-footer button {
+  width: 38px;
+  height: 38px;
+  color: #17121f;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.composer-footer button:hover,
+.panel button:hover {
+  background: var(--accent-hover);
+}
+
+/* DIÁRIO, MEMÓRIA E CONFIGURAÇÕES */
+
+.page {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 35px 28px 50px;
+}
+
+.page h1 {
+  margin-bottom: 8px;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 22px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.panel label {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.panel input,
+.panel textarea {
+  width: 100%;
+  padding: 12px 13px;
+  color: var(--text);
+  background: #111318;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.panel textarea {
+  resize: vertical;
+}
+
+.panel button {
+  align-self: flex-start;
+  padding: 10px 16px;
+  color: #17121f;
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+
+.entry {
+  margin-top: 12px;
+  padding: 17px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+.entry h3 {
+  margin: 0 0 7px;
+  font-size: 16px;
+}
+
+.entry p {
+  margin: 0;
+  color: var(--muted);
+  white-space: pre-wrap;
+}
+
+.entry small {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* CELULARES */
+
+@media (max-width: 700px) {
+  body {
+    font-size: 14px;
+  }
+
+  .sidebar {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 270px;
+    min-width: 0;
+    min-height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    box-shadow: 12px 0 35px #00000040;
+  }
+
+  body.menu-open .sidebar {
+    transform: translateX(0);
+  }
+
+  .main-panel {
+    width: 100%;
+  }
+
+  .topbar {
+    height: 60px;
+    min-height: 60px;
+    padding: 0 14px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  #view-chat.active {
+    min-height: calc(100vh - 60px);
+  }
+
+  .chat-content {
+    padding: 24px 16px;
+  }
+
+  .welcome {
+    margin: 55px auto 35px;
+  }
+
+  .welcome-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 30px;
+  }
+
+  .composer {
+    width: calc(100% - 24px);
+    margin-bottom: 12px;
+  }
+
+  .page {
+    padding: 25px 17px 35px;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+
+  .message {
+    max-width: 94%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
