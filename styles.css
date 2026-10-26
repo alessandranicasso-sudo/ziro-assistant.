@@ -502,3 +502,31 @@ textarea::placeholder {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* MENU LATERAL PARA CELULAR */
+
+#menu-toggle {
+display: block;
+cursor: pointer;
+}
+
+@media (max-width: 768px) {
+.sidebar {
+position: fixed;
+top: 0;
+left: 0;
+bottom: 0;
+z-index: 1000;
+width: 250px;
+min-width: 250px;
+height: 100vh;
+min-height: 100vh;
+overflow-y: auto;
+transform: translateX(-100%);
+transition: transform 0.25s ease;
+}
+
+.sidebar.open {
+transform: translateX(0);
+}
+}
