@@ -30,26 +30,27 @@ const pageTitles = {
 };
 
 function showView(name) {
-  document.querySelectorAll(".view").forEach(view => {
-    view.classList.toggle("active", view.id === `view-${name}`);
-  });
-
-  document.querySelectorAll(".nav-item").forEach(button => {
-    button.classList.toggle("active", button.dataset.view === name);
-  });
-
-  $("#page-title").textContent = pageTitles[name] || "Ziro";
-
-  document.body.classList.remove("menu-open");
-
-document.querySelectorAll(".nav-item").forEach(button => {
-  button.addEventListener("click", () => {
-    showView(button.dataset.view);
-  });
+document.querySelectorAll(".view").forEach(view => {
+view.classList.toggle("active", view.id === "view-${name}");
 });
 
-$$("#menu-toggle").addEventListener("click", () => {
-  document.body.classList.toggle("menu-open");
+document.querySelectorAll(".nav-item").forEach(button => {
+button.classList.toggle("active", button.dataset.view === name);
+});
+
+$("#page-title").textContent = pageTitles[name] || "Ziro";
+
+document.body.classList.remove("menu-open");
+}
+
+document.querySelectorAll(".nav-item").forEach(button => {
+button.addEventListener("click", () => {
+showView(button.dataset.view);
+});
+});
+
+$("#menu-toggle").addEventListener("click", () => {
+document.body.classList.toggle("menu-open");
 });
 
 
