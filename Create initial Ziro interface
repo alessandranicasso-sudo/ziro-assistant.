@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111318">
+  <meta name="description" content="Ziro — seu assistente pessoal.">
+  <title>Ziro — Assistente pessoal</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#">
+      <span class="brand-icon">z.</span>
+      <span>Ziro</span>
+    </a>
+
+    <button id="new-chat" class="new-chat">
+      + Nova conversa
+    </button>
+
+    <nav>
+      <button class="nav-item active" data-view="chat">◈ Conversas</button>
+      <button class="nav-item" data-view="diary">▤ Diário</button>
+      <button class="nav-item" data-view="memory">✧ Memória</button>
+      <button class="nav-item" data-view="settings">⚙ Configurações</button>
+    </nav>
+
+    <p class="sidebar-footer">Seu espaço, suas ideias.</p>
+  </aside>
+
+  <main class="main-panel">
+    <header class="topbar">
+      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu">☰</button>
+      <span id="page-title">Conversas</span>
+      <span class="badge">PRÉVIA</span>
+    </header>
+
+    <section id="view-chat" class="view active">
+      <div class="chat-content">
+        <div id="welcome" class="welcome">
+          <div class="welcome-icon">z.</div>
+          <p class="eyebrow">SEU ESPAÇO, SUAS IDEIAS</p>
+          <h1>Por onde começamos?</h1>
+          <p>Sou o Ziro. Vamos organizar ideias, pensamentos e projetos.</p>
+        </div>
+
+        <div id="messages" class="messages"></div>
+      </div>
+
+      <form id="chat-form" class="composer">
+        <textarea id="chat-input" rows="1"
+          placeholder="Converse com o Ziro..."
+          aria-label="Sua mensagem"></textarea>
+        <div class="composer-footer">
+          <span>Protótipo em construção</span>
+          <button type="submit" aria-label="Enviar mensagem">↑</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="view-diary" class="view page">
+      <p class="eyebrow">UM LUGAR SÓ SEU</p>
+      <h1>Diário</h1>
+      <p>Um espaço para registrar seus pensamentos.</p>
+
+      <form id="diary-form" class="panel">
+        <label for="diary-title">Título</label>
+        <input id="diary-title" maxlength="100" placeholder="Um título para hoje">
+
+        <label for="diary-body">Sua entrada</label>
+        <textarea id="diary-body" rows="6" maxlength="10000"
+          placeholder="Escreva no seu ritmo..."></textarea>
+
+        <button type="submit">Guardar entrada</button>
+      </form>
+
+      <h2>Entradas guardadas</h2>
+      <div id="diary-entries"></div>
+    </section>
+
+    <section id="view-memory" class="view page">
+      <p class="eyebrow">CONTEXTO QUE VOCÊ CONTROLA</p>
+      <h1>Memória</h1>
+      <p>Escolha as informações que deseja guardar.</p>
+
+      <form id="memory-form" class="panel">
+        <label for="memory-text">O que deseja guardar?</label>
+        <textarea id="memory-text" rows="4" maxlength="2000"
+          placeholder="Escreva uma informação importante..."></textarea>
+
+        <button type="submit">Guardar memória</button>
+      </form>
+
+      <h2>Memórias guardadas</h2>
+      <div id="memory-entries"></div>
+    </section>
+
+    <section id="view-settings" class="view page">
+      <p class="eyebrow">DO SEU JEITO</p>
+      <h1>Configurações</h1>
+
+      <div class="panel">
+        <h2>Versão</h2>
+        <p>Protótipo inicial do Ziro.</p>
+      </div>
+
+      <div class="panel">
+        <h2>Inteligência artificial</h2>
+        <p>A conexão com um modelo de IA será implementada depois.</p>
+      </div>
+
+      <div class="panel">
+        <h2>Armazenamento</h2>
+        <p>As primeiras informações serão guardadas neste navegador.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
