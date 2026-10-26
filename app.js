@@ -31,7 +31,7 @@ const pageTitles = {
 
 function showView(name) {
 document.querySelectorAll(".view").forEach(view => {
-view.classList.toggle("active", view.id === "view-${name}");
+view.classList.toggle("active", view.id === `view-${name}`);
 });
 
 document.querySelectorAll(".nav-item").forEach(button => {
