@@ -48,9 +48,10 @@ document.querySelectorAll(".nav-item").forEach(button => {
   });
 });
 
-$("#menu-toggle").addEventListener("click", () => {
-  document.querySelector(".sidebar").classList.toggle("open");
+$$("#menu-toggle").addEventListener("click", () => {
+  document.body.classList.toggle("menu-open");
 });
+
 
 // ========================================
 // CONVERSA
